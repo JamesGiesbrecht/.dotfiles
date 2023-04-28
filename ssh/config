@@ -1,0 +1,27 @@
+
+# --- Sourcetree Generated ---
+Host 192.168.0.63
+	HostName 192.168.0.63
+	User root
+
+Host JamesGiesbrecht-GitHub
+	HostName github.com
+	User JamesGiesbrecht
+	PreferredAuthentications publickey
+	IdentityFile /Users/james/.ssh/JamesGiesbrecht-GitHub
+	UseKeychain yes
+	AddKeysToAgent yes
+# ----------------------------
+
+Host unraid
+    HostName 192.168.0.2
+    Port 22
+    User root
+    IdentityFile ~/.ssh/id_rsa
+
+Host ha
+    HostName 192.168.0.63
+    Port 22
+    User root
+    IdentityFile ~/.ssh/id_rsa
+    PreferredAuthentications publickey
