@@ -129,3 +129,11 @@ dockerssh() {
 pidid() {
   ps -ax | grep "$1"
 }
+
+### Bashhub.com Installation
+if [ -f ~/.bashhub/bashhub.zsh ]; then
+  source ~/.bashhub/bashhub.zsh
+fi
+
+# https://github.com/pindexis/qfc file auto-completion
+[[ -s "$HOME/.qfc/bin/qfc.sh" ]] && source "$HOME/.qfc/bin/qfc.sh"
