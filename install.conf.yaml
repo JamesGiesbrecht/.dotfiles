@@ -1,10 +1,64 @@
+# https://github.com/anishathalye/dotbot
+
+# Checks for dead symbolic links in home
 - clean: ['~']
+- clean:
+    ~/.zsh/*:
+      force: true
+    # ~/.ssh/*:
+    #   force: true
+    #   recursive: true
+
+# - clean:
+#     ~/.config:
+#       recursive: true
 
 - link:
-    ~/.bash_profile: bash_profile
-    ~/.gitconfig: gitconfig
-    ~/.ssh/config:
-      path: ssh/config
+    # ~/<filesystem_path>: <dotfiles_path>
+    # Linking dotfiles so it is not hidden in Finder
+    ~/dotfiles: ./
+    # ZSH
+    ~/.zsh:
+      path: config/.zsh/*
       create: true
-    ~/.zprofile: zprofile
-    ~/.zshrc: zshrc
+      glob: true
+      exclude: ['config/.zsh/zshrc']
+    ~/.zshrc: config/.zsh/zshrc
+    ~/.zprofile: config/.zsh/zprofile
+    # BASH
+    ~/.bash_profile: config/.bash/bash_profile
+    # GIT
+    ~/.gitconfig: config/git/gitconfig
+    # SSH
+    ~/.ssh/config:
+      path: config/ssh/config
+      create: true
+# - link:
+#   ~/<filesystem_path>: <dotfiles_path>
+#   ~/<filesystem_path>:
+#     path: 'The source for the symlink, the same as in the shortcut syntax (default: null, automatic (see below))'
+#     create: 'When true, create parent directories to the link as needed. (default: false)'
+#     relink: "Removes the old target if it's a symlink (default: false)"
+#     force: 'Force removes the old target, file or folder, and forces a new link (default: false)'
+#     relative: 'Use a relative path to the source when creating the symlink (default: false, absolute links)'
+#     canonicalize: 'Resolve any symbolic links encountered in the source to symlink to the canonical path (default: true, real paths)'
+#     if: 'Execute this in your $SHELL and only link if it is successful.'
+#     ignore-missing: 'Do not fail if the source is missing and create the link anyway (default: false)'
+#     glob: 'Treat path as a glob pattern, expanding patterns referenced below, linking all files matched. (default: false)'
+#     exclude: 'Array of glob patterns to remove from glob matches. Uses same syntax as path. Ignored if glob is false. (default: - empty, keep all matches)'
+#     prefix: "Prepend prefix prefix to basename of each file when linked, when glob is true. (default: '')"
+
+# - shell:
+#     - chsh -s $(which zsh)
+#     - [chsh -s $(which zsh), Making zsh the default shell]
+#     - command: chsh -s $(which zsh)
+#       stdin: true
+#       stdout: true
+#       description: Making zsh the default shell
+#       quiet: true
+#     - command: 'The command to be run'
+#       description: 'A human-readable message describing the command (default: null)'
+#       quiet: 'Show only the description but not the command in log output (default: false)'
+#       stdin: 'Allow a command to read from standard input (default: false)'
+#       stdout: "Show a command's output from stdout (default: false)"
+#       stderr: "Show a command's error output from stderr (default: false)"

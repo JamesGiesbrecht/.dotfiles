@@ -1,0 +1,29 @@
+# === ALIASES ===
+
+# Edit files in VSCode
+alias zshconfig="code ~/.zshrc"
+alias ohmyzsh="code ~/.oh-my-zsh"
+
+# Flush DNS cache
+alias fdns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
+
+# Show local ip
+alias localip="ipconfig getifaddr en0"
+
+# Copy public key to clipboard:
+alias pubkey="cat ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
+
+# Reload Shell
+alias reload="exec ${SHELL}"
+
+# Permantly unhide files in Finder
+alias unhide="sudo chflags nohidden"
+
+# Git
+alias yeet='git push'
+alias yoink='git pull'
+# Changes environment variables associated with commits
+# git change-commits GIT_AUTHOR_NAME "old name" "new name"
+# Change last 10 commits
+# git change-commits GIT_AUTHOR_EMAIL "old@email.com" "new@email.com" HEAD~10..HEAD
+alias change-commits='!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" \$@; }; f '
