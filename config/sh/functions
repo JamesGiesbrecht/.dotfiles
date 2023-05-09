@@ -1,0 +1,64 @@
+# === FUNCTIONS ===
+
+# SSH into docker container
+# dockerssh <container_name>
+function dockerssh() {
+  docker exec -it "$1" bash
+}
+
+# Find process by PID
+# ppid <pid>
+function pidid() {
+  ps -ax | grep "$1"
+}
+
+# Create a new directory and enter it
+# mc <dir_name>
+function mkd() {
+  mkdir -p "$@" && cd "$@"
+}
+
+# Shows pretty `man` page.
+# From Dan Ryan's blog - http://danryan.co/using-antigen-for-zsh.html
+function man() {
+  env \
+    LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+    LESS_TERMCAP_md=$(printf "\e[1;31m") \
+    LESS_TERMCAP_me=$(printf "\e[0m") \
+    LESS_TERMCAP_se=$(printf "\e[0m") \
+    LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+    LESS_TERMCAP_ue=$(printf "\e[0m") \
+    LESS_TERMCAP_us=$(printf "\e[1;32m") \
+    man "$@"
+}
+
+### https://github.com/mathiasbynens/dotfiles ###
+
+# Change working directory to the top-most Finder window location
+function cdf() { # short for `cdfinder`
+  cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')"
+}
+
+# Determine size of a file or total size of a directory
+function fs() {
+  if du -b /dev/null >/dev/null 2>&1; then
+    local arg=-sbh
+  else
+    local arg=-sh
+  fi
+  if [[ -n "$@" ]]; then
+    du $arg -- "$@"
+  else
+    du $arg .[^.]* ./*
+  fi
+}
+
+# `o` with no arguments opens the current directory, otherwise opens the given
+# location
+function o() {
+  if [ $# -eq 0 ]; then
+    open .
+  else
+    open "$@"
+  fi
+}

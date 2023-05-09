@@ -2,37 +2,53 @@
 
 # Checks for dead symbolic links in home
 - clean: ['~']
-- clean:
-    ~/.zsh/*:
-      force: true
-    # ~/.ssh/*:
-    #   force: true
-    #   recursive: true
 
-# - clean:
-#     ~/.config:
-#       recursive: true
+- defaults:
+    link:
+      relink: true
+      create: true
+    shell:
+      stderr: true
 
+# Directory links
 - link:
-    # ~/<filesystem_path>: <dotfiles_path>
     # Linking dotfiles so it is not hidden in Finder
     ~/dotfiles: ./
     # ZSH
-    ~/.zsh:
-      path: config/.zsh/*
-      create: true
-      glob: true
-      exclude: ['config/.zsh/zshrc']
-    ~/.zshrc: config/.zsh/zshrc
-    ~/.zprofile: config/.zsh/zprofile
+    ~/.sh: config/sh/
+    # MACKUP
+    ~/.config/mackup: config/mackup/
+
+- link:
+    # ~/<filesystem_path>: <dotfiles_path>
+    #ZSH
+    ~/.zshrc: config/zsh/zshrc
+    ~/.zprofile: config/zsh/zprofile
     # BASH
-    ~/.bash_profile: config/.bash/bash_profile
+    ~/.bashrc: config/bash/bashrc
     # GIT
     ~/.gitconfig: config/git/gitconfig
+    # HOMEBREW
+    ~/.config/Brewfile: config/homebrew/Brewfile
+    ~/.local/bin/brewit: config/homebrew/brewit
+    # MACKUP
+    ~/.mackup.cfg: config/mackup/mackup.cfg
     # SSH
     ~/.ssh/config:
       path: config/ssh/config
       create: true
+
+# ---------------------------------------------------------------------------------------------
+# --  Install
+# ---------------------------------------------------------------------------------------------
+- defaults:
+    shell:
+      stdin: true
+      stdout: true
+      stderr: true
+- shell:
+    - description: Installing/Updating Homebrew and formulea
+      command: $HOME/.local/bin/brewit
 # - link:
 #   ~/<filesystem_path>: <dotfiles_path>
 #   ~/<filesystem_path>:

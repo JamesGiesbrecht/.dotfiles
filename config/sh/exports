@@ -1,0 +1,54 @@
+# === EXPORTS ===
+
+# Editor
+export EDITOR=$(which code)
+
+# Homebrew
+export HOMEBREW_NO_ANALYTICS=1 # disables statistics that brew collects
+export HOMEBREW_BUNDLE_FILE="$HOME/.config/Brewfile"
+
+# Enables ANSI color in the terminal
+export CLICOLOR=1
+
+# Java
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.6.0_65-b14-462)
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+
+# Directories
+export ICLOUD="~/Library/Mobile Documents/com~apple~CloudDocs/"
+export DOTFILES="~/.dotfiles"
+export DEV="~/Development"
+export NEXTCLOUD="~/Nextcloud"
+export PROJECTS="~/Development/git-projects"
+
+### https://github.com/mathiasbynens/dotfiles ###
+
+# Enable persistent REPL history for `node`.
+export NODE_REPL_HISTORY=~/.node_history
+# Allow 32³ entries; the default is 1000.
+export NODE_REPL_HISTORY_SIZE='32768'
+# Use sloppy mode by default, matching web browsers.
+export NODE_REPL_MODE='sloppy'
+
+# Increase Bash history size. Allow 32³ entries; the default is 500.
+export HISTSIZE='32768'
+export HISTFILESIZE="${HISTSIZE}"
+# Omit duplicates and commands that begin with a space from history.
+export HISTCONTROL='ignoreboth'
+
+# Prefer US English and use UTF-8.
+export LANG='en_US.UTF-8'
+export LC_ALL='en_US.UTF-8'
+
+# Highlight section titles in manual pages.
+export LESS_TERMCAP_md="${yellow}"
+
+# Don’t clear the screen after quitting a manual page.
+export MANPAGER='less -X'
+
+# Local scripts
+export PATH=$PATH:$HOME/.local/bin

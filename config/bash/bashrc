@@ -1,0 +1,5 @@
+# === SOURCE ===
+export SH="$HOME/.sh"
+source $SH/aliases
+source $SH/exports
+source $SH/functions

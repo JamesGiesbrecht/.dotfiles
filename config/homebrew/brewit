@@ -1,0 +1,96 @@
+#!/usr/bin/env bash
+
+# --------
+# Homebrew: Install, update, upgrade and cleanup
+# https://github.com/merikan/.dotfiles
+# ------
+
+# resolve links - $0 may be a softlink
+PRG="$0"
+while [ -h "$PRG" ]; do
+  ls=$(ls -ld "$PRG")
+  link=$(expr "$ls" : '.*-> \(.*\)$')
+  if expr "$link" : '/.*' >/dev/null; then
+    PRG="$link"
+  else
+    PRG=$(dirname "$PRG")/"$link"
+  fi
+done
+PRGDIR=$(dirname "$PRG")
+source "$PRGDIR"/../scripts/include.sh
+
+install() {
+  if ! command -v brew >/dev/null 2>&1; then
+
+    # XCode Command Line Tools is required for Homebrew
+    # (since we are able to git clone this repo xcode should already have been installed)
+    if ! xcode-select --print-path &>/dev/null; then
+      fail "command-line tools for Xcode must be installed before we can use Homebrew. \n"
+    fi
+    info "Installing homebrew"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    if [[ $? != 0 ]]; then
+      fail "unable to install homebrew, script $0"
+    fi
+    eval "$(${HOMEBREW_PREFIX}/bin/brew shellenv)"
+    success "Homebrew is installed"
+  fi
+  # install rosetta
+  if [[ "$(uname -m)" == "arm64" ]]; then
+    /usr/sbin/softwareupdate --install-rosetta --agree-to-license
+  fi
+
+  info "Installing homebrew bundle.. (brew bundle)"
+  # brew bundle --verbose
+  success
+}
+
+update() {
+  info "Updating Homebrew... (brew update)"
+  brew update
+  success
+}
+upgrade() {
+  info "Upgrading formulae...(brew upgrade)"
+  brew upgrade
+  success
+  info "Upgrading casks...(brew cask upgrade)"
+  brew upgrade --cask
+  success
+}
+cleanup() {
+  info "Cleaning up Homebrew... (brew cleanup)"
+
+  items=($(brew list --formula) $(brew list --cask))
+  for ignore in ${cleanup_ignore[@]}; do
+    if [[ " ${items[@]} " =~ " ${ignore} " ]]; then
+      items=("${items[@]/$ignore/}")
+      #info "Ignoring cleanup for ${ignore}."
+      ignored[${#ignored[@]}]="${ignore}"
+    fi
+  done
+  brew cleanup --prune ${cleanup_prune:-30} ${items[*]}
+  success "Cleaned up ${#items[*]} formulae/casks, ${#ignored[*]} was ignored (${ignored[*]})"
+}
+
+healthCheck() {
+  info "Doing a health check... (brew doctor && brew missing)"
+  brew doctor
+  brew missing
+  success
+}
+
+main() {
+  heading "Brewing with Homebrew"
+  read -p "Do you want to install/update Homebrew, Formulae and Casks ? (Y/n) " choice
+  choice=${choice:-Y}
+  [[ "$choice" =~ ^([Yy])$ ]] || exit 0
+  install
+  update
+  upgrade
+  cleanup
+  healthCheck
+  success "Done brewing"
+}
+
+main

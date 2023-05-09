@@ -10,10 +10,11 @@ ZSH_THEME="robbyrussell"
 source $OH_MY_ZSH/oh-my-zsh.sh
 
 # === SOURCE ===
-export ZSH="$HOME/.zsh"
-source $ZSH/aliases
-source $ZSH/exports
-source $ZSH/functions
+export SH="$HOME/.sh"
+source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $SH/aliases
+source $SH/exports
+source $SH/functions
 
 # === PLUGINS ===
 
