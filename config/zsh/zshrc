@@ -10,7 +10,7 @@ ZSH_THEME="robbyrussell"
 source $OH_MY_ZSH/oh-my-zsh.sh
 
 # === SOURCE ===
-export SH="$HOME/.sh"
+export SH="$HOME/.config/sh"
 source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $SH/aliases
 source $SH/exports

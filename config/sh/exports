@@ -3,9 +3,13 @@
 # Editor
 export EDITOR=$(which code)
 
+# Config
+export USER_CONFIG="$HOME/.config"
+export DOTFILES="~/.dotfiles"
+
 # Homebrew
 export HOMEBREW_NO_ANALYTICS=1 # disables statistics that brew collects
-export HOMEBREW_BUNDLE_FILE="$HOME/.config/Brewfile"
+export HOMEBREW_BUNDLE_FILE="$USER_CONFIG/homebrew/Brewfile"
 
 # Enables ANSI color in the terminal
 export CLICOLOR=1
@@ -15,12 +19,11 @@ export JAVA_HOME=$(/usr/libexec/java_home -v 1.6.0_65-b14-462)
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"                                       # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
 
 # Directories
 export ICLOUD="~/Library/Mobile Documents/com~apple~CloudDocs/"
-export DOTFILES="~/.dotfiles"
 export DEV="~/Development"
 export NEXTCLOUD="~/Nextcloud"
 export PROJECTS="~/Development/git-projects"

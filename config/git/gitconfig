@@ -1,5 +1,5 @@
 [core]
-excludesfile = ~/.gitignore_global
+	excludesfile = /Users/james/.gitignore_global
 attributesfile = ~/.gitattributes_global
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
@@ -8,7 +8,9 @@ attributesfile = ~/.gitattributes_global
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [user]
-name = James Giesbrecht
-email = giesbrechtjames@gmail.com
+	name = James Giesbrecht
+	email = giesbrechtjames@gmail.com
 [init]
 defaultBranch = main
+[commit]
+	template = /Users/james/.stCommitMsg

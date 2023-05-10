@@ -1,51 +1,95 @@
 tap "homebrew/bundle"
-
-
-
-# Brew Packages
-brew "nvm"
-brew "git"
-brew "wget"
-brew "yarn"
-brew "python3"
+# Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
+# Distributed revision control system
+brew "git"
+# Checks presence of various command-line tools and their versions on the path
 brew "has"
-brew "tree"
+# Keep your Mac's application settings in sync
+brew "mackup"
+# Manage multiple Node.js versions
+brew "nvm"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.11"
+# Autoformat shell script source code
 brew "shfmt"
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
+# Internet file retriever
+brew "wget"
+# JavaScript package manager
+brew "yarn"
+# Fish-like fast/unobtrusive autosuggestions for zsh
+brew "zsh-autosuggestions"
+# Fish shell like syntax highlighting for zsh
+brew "zsh-syntax-highlighting"
 
-# Brew Casks
-cask "altserver"
-cask "google-chrome"
-cask "discord"
-cask "ccleaner"
-cask "firefox"
-cask "docker"
-cask "devtoys"
-cask "daisydisk"
-cask "cheatsheet"
-cask "bitwarden"
-cask "warp"
-cask "openvpn-connect"
-cask "vlc"
-cask "the-unarchiver"
-cask "teamviewer"
-cask "epic-games"
-cask "steam"
-cask "stats"
-cask "sourcetree"
-cask "slack"
-cask "sensiblesidebuttons"
-cask "scroll-reverser"
-cask "private-internet-access"
-cask "postman"
-cask "onyx"
-cask "obsidian"
-cask "nextcloud"
-cask "prismlauncher"
-cask "iterm2"
-cask "itsycal"
-cask "cyberduck"
+# Menu bar tool to limit maximum charging percentage
 cask "aldente"
+# iOS App Store alternative
+cask "altserver"
+# Tool to flash OS images to SD cards & USB drives
 cask "balenaetcher"
-cask "monitorcontrol"
+# Desktop password and login vault
+cask "bitwarden"
+# Remove junk and unused files
+cask "ccleaner"
+# Tool to list all active shortcuts of the current application
+cask "cheatsheet"
+# Server and cloud storage browser
+cask "cyberduck"
+# Disk space visualizer
+cask "daisydisk"
+# Utilities designed to make common development tasks easier
+cask "devtoys"
+# Voice and text chat software
+cask "discord"
+# App to build and share containerized applications and microservices
+cask "docker"
+# Launcher for *Epic Games* games
+cask "epic-games"
+# Web browser
+cask "firefox"
+# Web browser
+cask "google-chrome"
+# Client for the Google Drive storage service
 cask "google-drive"
+# Terminal emulator as alternative to Apple's Terminal app
+cask "iterm2"
+# Menu bar calendar
+cask "itsycal"
+# Tool to control external monitor brightness & volume
+cask "monitorcontrol"
+# Desktop sync client for Nextcloud software products
+cask "nextcloud"
+# Knowledge base that works on top of a local folder of plain text Markdown files
+cask "obsidian"
+# Verify system files structure, run miscellaneous maintenance and more
+cask "onyx"
+# Client program for the OpenVPN Access Server
+cask "openvpn-connect"
+# Collaboration platform for API development
+cask "postman"
+# Minecraft launcher
+cask "prismlauncher"
+# VPN client
+cask "private-internet-access"
+# Tool to reverse the direction of scrolling
+cask "scroll-reverser"
+cask "sensiblesidebuttons"
+# Team communication and collaboration software
+cask "slack"
+# Graphical client for Git version control
+cask "sourcetree"
+# System monitor for the menu bar
+cask "stats"
+# Video game digital distribution service
+cask "steam"
+# Remote access and connectivity software focused on security
+cask "teamviewer"
+# Unpacks archive files
+cask "the-unarchiver"
+# Multimedia player
+cask "vlc"
+# Rust-based terminal
+cask "warp"
