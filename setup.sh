@@ -21,7 +21,7 @@ brew install git
 
 # Clone repo, and run install script
 
-git clone git@github.com:JamesGiesbrecht/.dotfiles.git ~/.dotfiles
+git clone https://github.com/JamesGiesbrecht/.dotfiles.git ~/.dotfiles
 
 cd ~/.dotfiles || echo -e "${RED} 'cd ~/.dotfiles' failed." && exit 1
 
