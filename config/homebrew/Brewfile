@@ -5,12 +5,14 @@ brew "curl"
 brew "git"
 # Checks presence of various command-line tools and their versions on the path
 brew "has"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.11"
 # Keep your Mac's application settings in sync
 brew "mackup"
 # Manage multiple Node.js versions
 brew "nvm"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.11"
+# Development kit for the Java programming language
+brew "openjdk"
 # Autoformat shell script source code
 brew "shfmt"
 # Display directories as trees (with optional color/HTML output)
@@ -23,7 +25,6 @@ brew "yarn"
 brew "zsh-autosuggestions"
 # Fish shell like syntax highlighting for zsh
 brew "zsh-syntax-highlighting"
-
 # Menu bar tool to limit maximum charging percentage
 cask "aldente"
 # iOS App Store alternative
@@ -32,8 +33,6 @@ cask "altserver"
 cask "balenaetcher"
 # Desktop password and login vault
 cask "bitwarden"
-# Remove junk and unused files
-cask "ccleaner"
 # Tool to list all active shortcuts of the current application
 cask "cheatsheet"
 # Server and cloud storage browser
@@ -58,6 +57,10 @@ cask "google-drive"
 cask "iterm2"
 # Menu bar calendar
 cask "itsycal"
+# Clipboard manager
+cask "maccy"
+# Sandbox construction video game
+cask "minecraft"
 # Tool to control external monitor brightness & volume
 cask "monitorcontrol"
 # Desktop sync client for Nextcloud software products

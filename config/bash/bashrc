@@ -3,3 +3,4 @@ export SH="$HOME/.sh"
 source $SH/aliases
 source $SH/exports
 source $SH/functions
+if [ -f $(brew --prefix)/etc/bash_completion ]; then source $(brew --prefix)/etc/bash_completion; fi

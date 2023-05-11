@@ -32,6 +32,24 @@ function man() {
     man "$@"
 }
 
+function change_commit_date() {
+  # Get the hash of the most recent commit
+  commit_hash=$(git log -1 --format=%H)
+
+  # Get the current commit date
+  current_date=$(git log -1 --format=%cd --date=iso-strict $commit_hash)
+
+  # Prompt the user to enter a new date
+  echo "Enter the new commit date in ISO 8601 format (YYYY-MM-DDTHH:MM:SS): "
+  read new_date
+
+  # Change the commit date
+  GIT_COMMITTER_DATE="$new_date" git commit --amend --no-edit --date "$new_date"
+
+  # Print a message with the old and new commit dates
+  echo "Commit date changed from $current_date to $new_date"
+}
+
 ### https://github.com/mathiasbynens/dotfiles ###
 
 # Change working directory to the top-most Finder window location
