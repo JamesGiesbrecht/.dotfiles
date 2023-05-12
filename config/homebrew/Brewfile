@@ -31,8 +31,6 @@ cask "aldente"
 cask "altserver"
 # Tool to flash OS images to SD cards & USB drives
 cask "balenaetcher"
-# Desktop password and login vault
-cask "bitwarden"
 # Tool to list all active shortcuts of the current application
 cask "cheatsheet"
 # Server and cloud storage browser

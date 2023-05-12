@@ -53,5 +53,7 @@ export LESS_TERMCAP_md="${yellow}"
 # Don’t clear the screen after quitting a manual page.
 export MANPAGER='less -X'
 
-# Local scripts
-export PATH=$PATH:$HOME/.local/bin
+# Local scripts and brew binaries
+# Java must be first in path
+export PATH=$PATH:$HOME/.local/bin:$HOME/.docker/bin
+export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"

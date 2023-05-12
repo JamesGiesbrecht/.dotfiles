@@ -41,7 +41,9 @@ install() {
   fi
 
   info "Installing homebrew bundle.. (brew bundle)"
-  # brew bundle --verbose
+  brew bundle --verbose
+  # Required for nvm through brew
+  mkdir ~/.nvm 2>/dev/null
   success
 }
 

@@ -49,8 +49,12 @@
       path: config/ssh/config
       create: true
     #ZSH
-    ~/.zshrc: config/zsh/zshrc
-    ~/.zprofile: config/zsh/zprofile
+    ~/.zshrc:
+      path: config/zsh/zshrc
+      force: true
+    ~/.zprofile:
+      path: config/zsh/zprofile
+      force: true
 
 # ---------------------------------------------------------------------------------------------
 # --  Install
